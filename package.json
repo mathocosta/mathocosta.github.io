@@ -1,0 +1,8 @@
+{
+  "name": "mathocosta.github.io",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/mathocosta/mathocosta.github.io",
+  "author": "Matheus Oliveira Costa <matheusoliveiracos@gmail.com>",
+  "license": "MIT"
+}
