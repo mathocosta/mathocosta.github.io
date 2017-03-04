@@ -5,22 +5,7 @@
 
 const hbs = require('handlebars')
 const fs = require('fs')
-
-
-/**
- * Create a new file with the data passed as argument.
- *
- * @param {string} name
- * @param {string} data
- */
-function saveFile (name, data) {
-  fs.writeFile(`${name}.html`, data, err => {
-    if (err)
-      throw err
-    else
-      console.log(`> ${name} saved...`)
-  })
-}
+const saveFile = require('./save-file.js')
 
 
 // Compiling the template.
@@ -30,8 +15,6 @@ fs.readdir('./posts/', (err, files) => {
   files.forEach((file) => {
     let post = JSON.parse(fs.readFileSync(`./posts/${file}`, 'utf8'))
     let html = postTemplate(post)
-    saveFile(post.filename, html)
+    saveFile(`${post.filename}.html`, html, `\t> ${post.filename}.html saved...`)
   })
-
-  console.log('\nAll files successfully compiled!')
 })
