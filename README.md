@@ -1,3 +1,9 @@
 # [mathocosta.github.io](https://mathocosta.github.io/)
-maybe my personal page
-&#x2635;
+my personal page
+
+## How it Works?
+I use handlebars as template engine, but only for the posts, other pages is just html. And for style, it is used sass.
+<br>
+There is no task runner, it's just npm scripts.
+- - -
+<p style="text-align: center;">&#x2635;</p>
