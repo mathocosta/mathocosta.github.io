@@ -6,4 +6,4 @@ I use handlebars as template engine, but only for the posts, other pages is just
 <br>
 There is no task runner, it's just npm scripts.
 - - -
-<p style="text-align: center;">&#x2635;</p>
+<p align="center">&#x2635;</p>
