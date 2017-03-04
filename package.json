@@ -6,10 +6,13 @@
   "author": "Matheus Oliveira Costa <matheusoliveiracos@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "compile-posts": "node ./scripts/compile-posts.js"
+    "compile-posts": "node ./scripts/compile-posts.js",
+    "compile-style": "node ./scripts/compile-style.js",
+    "compile-all": "yarn run compile-style && yarn run compile-posts"
   },
   "devDependencies": {
-    "handlebars": "^4.0.6"
+    "handlebars": "^4.0.6",
+    "node-sass": "^4.5.0"
   },
   "dependencies": {}
 }
