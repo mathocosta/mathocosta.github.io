@@ -10,7 +10,7 @@ sass.render({
   if (sassError)
     throw sassError
 
-  saveFile('./public/style.css', result.css, '> Styles compiled.')
+  saveFile('./style.css', result.css, '> Styles compiled.')
 })
 
 module.exports = sass
