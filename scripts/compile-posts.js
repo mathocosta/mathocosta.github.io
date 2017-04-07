@@ -4,8 +4,10 @@
  * And put all posts in /blog page.
  */
 
-const hbs = require('handlebars')
 const fs = require('fs')
+const path = require('path')
+const marked = require('marked')
+const hbs = require('handlebars')
 const saveFile = require('./save-file.js')
 
 // Compiling the templates.
@@ -14,22 +16,23 @@ const blogPageTemplate = hbs.compile(fs.readFileSync('./src/hbs/blog.hbs', 'utf8
 
 fs.readdir('./posts/', (err, files) => {
   let posts = []
-  files.forEach((file) => {
-    let post = JSON.parse(fs.readFileSync(`./posts/${file}`, 'utf8'))
-    let html = postTemplate(post)
-    saveFile(`${post.filename}.html`, html, `\t> ${post.filename}.html saved...`)
 
-    let obj = {
-      title: post.title,
-      filename: post.filename,
-      date: post.date
+  files.forEach((file) => {
+    if (path.extname(file) == '.json') {
+      let post = JSON.parse(fs.readFileSync(`./posts/${file}`, 'utf8'))
+      posts.push(post)
+
+      let markdownContent = fs.readFileSync(`./posts/${post.filename}.md`, 'utf8')
+      marked(markdownContent, (err, out) => {
+        post.content = out
+      })
+
+      let html = postTemplate(post)
+      saveFile(`${post.filename}.html`, html, `\t> ${post.filename}.html saved...`)
     }
-    posts.push(obj)
   })
 
-  blogPage = {
-    posts: posts
-  }
+  blogPage = { posts: posts }
   let htmlBlog = blogPageTemplate(blogPage)
   saveFile('blog.html', htmlBlog, `\t> blog.html saved...`)
 })

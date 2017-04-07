@@ -1,0 +1,2 @@
+Olá, bem vindo ao meu blog.
+<br> O Objetivo dele será ter um lugar para colocar as coisas que penso e quero escrever. Mesmo eu sendo um desenvolvedor de software, e vivendo a vida com isso, não pretendo escrever só sobre isso e coisas técnicas, aqui terá principalmente opnião, minha péssima e inutil opnião. <br> Não espere algo de postagem com frequencia, pois nem sempre tenho algo que quero para escrever. Talvez seja melhor seguir meu twitter que pode ser que avise de alguma postagem por lá.
