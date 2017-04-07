@@ -5,5 +5,7 @@ my personal page
 I use handlebars as template engine, but only for the posts, other pages is just html. And for style, it is used sass.
 <br>
 There is no task runner, it's just npm scripts.
+<br>
+Each post consists of a json file (for the metadata) and a markdown file (post content), which are in the posts folder.
 - - -
 <p align="center">&#x2635;</p>
