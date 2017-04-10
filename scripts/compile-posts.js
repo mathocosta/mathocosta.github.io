@@ -14,21 +14,25 @@ const saveFile = require('./save-file.js')
 const postTemplate = hbs.compile(fs.readFileSync('./src/hbs/post.hbs', 'utf8'))
 const blogPageTemplate = hbs.compile(fs.readFileSync('./src/hbs/blog.hbs', 'utf8'))
 
-fs.readdir('./posts/', (err, files) => {
+const inputDir = './src/posts'
+const outPostsDir = './posts/'
+
+fs.readdir(inputDir, (err, files) => {
   let posts = []
 
   files.forEach((file) => {
     if (path.extname(file) == '.json') {
-      let post = JSON.parse(fs.readFileSync(`./posts/${file}`, 'utf8'))
+      let post = JSON.parse(fs.readFileSync(path.join(inputDir, file), 'utf8'))
       posts.push(post)
 
-      let markdownContent = fs.readFileSync(`./posts/${post.filename}.md`, 'utf8')
+      let markdownContent = fs.readFileSync(`${path.join(inputDir, post.filename)}.md`, 'utf8')
       marked(markdownContent, (err, out) => {
         post.content = out
       })
 
       let html = postTemplate(post)
-      saveFile(`${post.filename}.html`, html, `\t> ${post.filename}.html saved...`)
+      let outFile = `${path.join(outPostsDir, post.filename)}.html`
+      saveFile(outFile, html, `\t> ${post.filename}.html saved...`)
     }
   })
 
