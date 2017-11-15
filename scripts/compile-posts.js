@@ -26,9 +26,7 @@ fs.readdir(inputDir, (err, files) => {
       posts.push(post)
 
       let markdownContent = fs.readFileSync(`${path.join(inputDir, post.filename)}.md`, 'utf8')
-      marked(markdownContent, (err, out) => {
-        post.content = out
-      })
+      marked(markdownContent, (err, out) => post.content = out)
 
       let html = postTemplate(post)
       let outFile = `${path.join(outPostsDir, post.filename)}.html`
@@ -36,7 +34,5 @@ fs.readdir(inputDir, (err, files) => {
     }
   })
 
-  blogPage = { posts: posts }
-  let htmlBlog = blogPageTemplate(blogPage)
-  saveFile('blog.html', htmlBlog, `\t> blog.html saved...`)
+  saveFile('blog.html', blogPageTemplate({ posts: posts }), `\t> blog.html saved...`)
 })
