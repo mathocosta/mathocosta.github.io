@@ -12,14 +12,14 @@
 <body>
   <div class="main">
     <div class="header">
-      <p class="go-back-link"><a href="/">< voltar para home</a></p>
-      <h2>matho's Blog</h2>
+      <p class="go-back-link"><a href="/">@mathocosta</a></p>
+      <h2>Blog</h2>
     </div>
 
     <div class="posts">
       {{#each posts}}
       <div>
-        {{ date }} <b><a href="./posts/{{filename}}.html">{{ title }}</a></b>
+        {{ date }} <b><a href="./posts/{{filename}}.html">{{ title }} ({{language}})</a></b>
       </div>
       {{/each}}
     </div>

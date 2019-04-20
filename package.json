@@ -8,7 +8,7 @@
   "scripts": {
     "compile-posts": "node ./scripts/compile-posts.js",
     "compile-style": "node ./scripts/compile-style.js",
-    "compile-all": "yarn run compile-style && yarn run compile-posts",
+    "compile-all": "npm run compile-style && npm run compile-posts",
     "serve": "http-server ./"
   },
   "devDependencies": {
